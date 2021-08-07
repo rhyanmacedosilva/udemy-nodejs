@@ -1,5 +1,7 @@
 module.exports = (srv) => {
+    let controller = new srv.app.controllers['home.controller']();
+
     srv.get('/', (req, res) => {
-        res.render('home/index');
+        controller.index(res);
     });
 }

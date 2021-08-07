@@ -1,8 +1,8 @@
-let express = require('express');
-let consign = require('consign');
+const express = require('express');
+const consign = require('consign');
 const { check, validationResult } = require('express-validator');
 
-let srv = express();
+const srv = express();
 srv.set('view engine', 'ejs');
 srv.set('view options', { delimiter: '?' })
 srv.set('views', './app/views');
@@ -11,9 +11,10 @@ srv.use(express.urlencoded());
 srv.use(express.json());
 
 consign()
-    .include('app/routes')
-    .then('config/db.js')
+    .include('app/controllers')
     .then('app/models')
+    .then('app/routes')
+    .then('config/db.js')
     .into(srv, { check, validationResult });
 
 module.exports = srv;
