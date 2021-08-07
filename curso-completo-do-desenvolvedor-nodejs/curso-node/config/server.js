@@ -1,6 +1,14 @@
 let express = require('express');
-let app = express();
-app.set('view engine', 'ejs');
-app.set('views', './app/views');
+let consign = require('consign');
 
-module.exports = app;
+let srv = express();
+srv.set('view engine', 'ejs');
+srv.set('views', './app/views');
+
+consign()
+    .include('app/routes')
+    .then('config/db.js')
+    .then('app/models')
+    .into(srv);
+
+module.exports = srv;
