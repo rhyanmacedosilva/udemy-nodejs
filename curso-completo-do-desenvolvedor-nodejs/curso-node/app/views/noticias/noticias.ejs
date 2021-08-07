@@ -15,19 +15,19 @@
 			<td>Título</td>
 			<td>Notícia</td>
 		</tr>
-		<% for (let noticia of noticias) { %>
-			<tr>
-				<td>
-					<%= noticia.id %>
-				</td>
-				<td>
-					<%= noticia.titulo %>
-				</td>
-				<td>
-					<%= noticia.noticia %>
-				</td>
-			</tr>
-			<% } %>
+		<? for (let noticia of noticias) { ?>
+		<tr>
+			<td>
+				<?= noticia.id ?>
+			</td>
+			<td>
+				<?= noticia.titulo ?>
+			</td>
+			<td>
+				<?= noticia.noticia ?>
+			</td>
+		</tr>
+		<? } ?>
 	</table>
 </body>
 

@@ -10,15 +10,40 @@
 
 	<h1>Adicionar Notícia</h1>
 
+	<? if (erros) { ?>
+	<ul>
+		<? for (let erro of erros) { ?>
+		<li>
+			<?= erro.msg ?>
+		</li>
+		<? } ?>
+	</ul>
+	<? } ?>
+
 	<form action="/noticias/salvar" method="post">
 		<label>Título</label>
 		<br>
-		<input type="text" id="titulo" name="titulo">
+		<input type="text" id="titulo" name="titulo" value="<?= noticia.titulo ?>">
+		<br>
+		<br>
+		<label>Resumo</label>
+		<br>
+		<input type="text" id="resumo" name="resumo" value="<?= noticia.resumo ?>">
+		<br>
+		<br>
+		<label>Autor</label>
+		<br>
+		<input type="text" id="autor" name="autor" value="<?= noticia.autor ?>">
+		<br>
+		<br>
+		<label>Data dos Fatos</label>
+		<br>
+		<input type="date" id="data_noticia" name="data_noticia" value="<?= noticia.data_noticia ?>">
 		<br>
 		<br>
 		<label>Notícia</label>
 		<br>
-		<textarea name="noticia" id="noticia" cols="30" rows="4"></textarea>
+		<textarea name="noticia" id="noticia" cols="30" rows="4"><?= noticia.noticia ?></textarea>
 		<br>
 		<br>
 		<button type="submit">Enviar</button>
