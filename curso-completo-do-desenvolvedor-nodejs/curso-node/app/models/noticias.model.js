@@ -6,8 +6,8 @@ NoticiasModel.prototype.getNoticias = function (callback) {
     this._connection.query('SELECT * FROM noticias', callback);
 }
 
-NoticiasModel.prototype.getNoticia = function (callback) {
-    this._connection.query('SELECT * FROM noticias WHERE id = 2', callback);
+NoticiasModel.prototype.getNoticia = function (id, callback) {
+    this._connection.query('SELECT * FROM noticias WHERE id = ' + id, callback);
 }
 
 NoticiasModel.prototype.salvarNoticia = function (noticia, callback) {

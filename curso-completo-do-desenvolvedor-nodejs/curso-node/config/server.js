@@ -10,6 +10,7 @@ srv.set('views', './app/views');
 
 srv.use(express.urlencoded({ extended: true }));
 srv.use(express.json());
+srv.use(express.static('./app/public'));
 
 consign()
     .include('app/controllers')

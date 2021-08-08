@@ -11,11 +11,12 @@ NoticiasController.prototype.noticias = function (res) {
     });
 }
 
-NoticiasController.prototype.noticia = function (res) {
+NoticiasController.prototype.noticia = function (req, res) {
     let connection = this._srv.config.db();
     let noticiasModel = new this._srv.app.models['noticias.model'](connection);
+    let idNoticia = req.params.id;
 
-    noticiasModel.getNoticia((error, result) => {
+    noticiasModel.getNoticia(idNoticia, (error, result) => {
         res.render('noticias/noticia', { noticia: result[0] });
     });
 }
